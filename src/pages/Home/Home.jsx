@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 import React, {useEffect} from 'react';
 import axios from "axios";
+=======
+import React from 'react';
+import SliderTop from "./SliderTop/SliderTop";
+import SliderProduct from "./SliderProduct/SliderProduct";
+
+>>>>>>> 17d489e5bcf86092dbb5f9cc6e4fe60ffd187105
 const Home = () => {
 
     // useEffect(() => {
@@ -8,9 +15,10 @@ const Home = () => {
     //     }).then((res) => console.log(res))
     // },[])
     return (
-        <div>
-            home
-        </div>
+        <>
+            <SliderTop/>
+            <SliderProduct/>
+        </>
     );
 };
 

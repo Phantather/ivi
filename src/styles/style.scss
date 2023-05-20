@@ -15,12 +15,18 @@ body {
   background: #100E19;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
 .container {
   max-width: 1216px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+
 }
 
 @import "header";
+@import "slidertop";
+@import "product";
 @import "login";
