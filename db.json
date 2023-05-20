@@ -1,3 +1,18 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "akdil.phanti@gmail.com",
+      "password": "$2a$10$U1Mn8l.lbBysLoBvFSj07eCpgvbdElgeepQTgZURmYZcrHnZm50vi",
+      "login": "Phantather",
+      "phone": "+996(123)12-31-23",
+      "id": 1
+    },
+    {
+      "email": "admin@mail.ru",
+      "password": "$2a$10$GO0FKq.LxoydgsJIRXImz.081wXKRq9uAwtmEgzhkxsJTxDqOy8wu",
+      "login": "admin",
+      "phone": "+996(123)12-31-23",
+      "id": 2
+    }
+  ]
 }

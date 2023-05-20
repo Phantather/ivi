@@ -3,13 +3,16 @@ import {Link, useNavigate} from "react-router-dom";
 import {BiHomeSmile} from "react-icons/bi";
 import {useForm} from "react-hook-form";
 import InputMask from 'react-input-mask'
+import axios from "axios";
+import {useDispatch} from "react-redux";
+import {loginUser} from "../../redux/reducers/user";
 
 
 const Register = () => {
 
-
     const [show, setShow] = useState(false)
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const {
         register,
@@ -20,11 +23,21 @@ const Register = () => {
         }
     } = useForm({mode: "onBlur"})
 
+    const registerUser = (data) => {
+        axios.post('http://localhost:8080/register',data)
+            .then(({data}) => {
+                dispatch(loginUser(data.user))
+                navigate('/')
+            })
+            .catch((error) => console.log(error))
+    }
 
     return (
         <section className="login">
             <div className="login__block">
-                <form  noValidate className="login__form">
+                <form noValidate className="login__form"
+                      onSubmit={handleSubmit(registerUser)}
+                >
                     <h2>Регистрация</h2>
                     <div className="login__form-block">
                         <input {...register('email',{
