@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Swiper, SwiperSlide} from "swiper/react";
+import {useDispatch, useSelector} from "react-redux";
 import "swiper/css";
 import "swiper/css/navigation";
 // import "./styles.css";
@@ -8,7 +9,21 @@ import "swiper/css/navigation";
 
 import { Navigation } from "swiper";
 import Card from "../../../components/Card";
+import {getMovies} from "../../../redux/reducers/movie";
+
 const SliderProduct = () => {
+
+    const {data} = useSelector(state => state.movie)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getMovies())
+    },[])
+
+
+
+
     return (
         <section className="sliderproduct">
             <div className="container">
@@ -18,48 +33,18 @@ const SliderProduct = () => {
                     <Swiper
                         navigation={true}
                         spaceBetween={24}
-
-
                         slidesPerView={7}
                         modules={[Navigation]}
                         className="mySwiper slidercard"
                         style={{marginTop: "20px"}}>
+                        {
+                            data.map((item,idx) => (
+                                <SwiperSlide>
+                                    <Card item={item}/>
+                                </SwiperSlide>
+                            ))
+                        }
 
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card/>
-                        </SwiperSlide>
                     </Swiper>
             </div>
         </section>
