@@ -4,7 +4,8 @@ export const getMovies = createAsyncThunk(
     'movie/getMovies',
     async (filter,{rejectWithValue}) => {
         try {
-            const res = await instance(`/movie?limit=20`)
+            const query = `${filter.genre ? `genres.name=${filter.genre}` : ''}`
+            const res = await instance(`/movie?${query}`)
             if (res.status !== 200) {
                 throw new Error('request error')
             }
@@ -16,7 +17,7 @@ export const getMovies = createAsyncThunk(
 )
 
 const movieSlice = createSlice({
-    name: 'name',
+    name: 'movie',
     initialState: {
         data: [],
         error: '',
@@ -30,7 +31,12 @@ const movieSlice = createSlice({
         }
     },
     reducers: {
-
+        changeGenres: (state, {payload}) => {
+            state.filter = {
+                ...state.filter,
+                genre: payload
+            }
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(getMovies.pending, (state, {payload}) => {
@@ -48,5 +54,7 @@ const movieSlice = createSlice({
     }
 })
 
+
+export const {changeGenres} = movieSlice.actions
 
 export default movieSlice.reducer

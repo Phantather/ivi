@@ -3,19 +3,21 @@ import Card from "../../components/Card";
 import {useDispatch, useSelector} from "react-redux";
 import user from "../../redux/reducers/user";
 import {getMovies} from "../../redux/reducers/movie";
+import SelectGenres from "./SelectGenres/SelectGenres";
 
 const Movies = () => {
 
-    const {data} = useSelector(state => state.movie)
+    const {data, filter} = useSelector(state => state.movie)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getMovies())
-    },[])
+        dispatch(getMovies(filter))
+    },[filter.genre])
 
     return (
         <section className="movies">
             <div className="container">
+                <SelectGenres/>
                 <div className="movies__row">
                     {
                         data.map((item) => (
