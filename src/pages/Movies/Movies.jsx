@@ -18,9 +18,15 @@ const Movies = () => {
     return (
         <section className="movies">
             <div className="container">
+<<<<<<< HEAD
                 {/*<SelectGenres/>*/}
                 <SelectYear/>
                 {/*<SelectCountries />*/}
+=======
+                <div className="movies__filter">
+                    <SelectGenres/>
+                </div>
+>>>>>>> 1bb108d6c171388819f6624d28b4c774db8eab7f
                 <div className="movies__row">
                     {
                         data?.map((item) => (

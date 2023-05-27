@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
 //media
 import logo from './logo.svg'
 import {AiOutlineSearch} from 'react-icons/ai'
 import {BiUser} from 'react-icons/bi'
+import HeaderSearch from "./HeaderSearch/HeaderSearch";
 
 const Header = () => {
+
+
+    const [open, setOpen] = useState(false)
+
+
     return (
         <header className="header">
             <div className="container">
@@ -30,7 +36,9 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="header__right">
-                        <button className="header__search">
+                        <button className="header__search"
+                        onClick={() => setOpen(!open)}
+                        >
                             <AiOutlineSearch/>
                             Поиск
                         </button>
@@ -39,6 +47,7 @@ const Header = () => {
                         </Link>
                     </div>
                 </nav>
+                <HeaderSearch open={open} setOpen={setOpen}/>
             </div>
         </header>
     );

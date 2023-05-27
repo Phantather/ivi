@@ -31,7 +31,7 @@ const SelectGenres = () => {
 
     return (
         <div>
-            <FormControl sx={{ m: 1, width: 300 }}>
+            <FormControl sx={{ m: 1, width: 300 }} >
                 <InputLabel id="demo-simple-select-autowidth-label"
                             style={{color: 'white'}}
                 >
