@@ -17,7 +17,9 @@ const Movies = () => {
     return (
         <section className="movies">
             <div className="container">
-                <SelectGenres/>
+                <div className="movies__filter">
+                    <SelectGenres/>
+                </div>
                 <div className="movies__row">
                     {
                         data.map((item) => (
