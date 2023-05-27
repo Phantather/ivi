@@ -13,12 +13,12 @@ import {getMovies} from "../../../redux/reducers/movie";
 
 const SliderProduct = () => {
 
-    const {data} = useSelector(state => state.movie)
+    const {data,filter} = useSelector(state => state.movie)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getMovies())
+        dispatch(getMovies(filter))
     },[])
 
 

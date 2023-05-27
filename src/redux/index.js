@@ -9,6 +9,8 @@ import {
     PURGE,
     REGISTER} from "redux-persist"
 import user from "./reducers/user";
+import oneFilm from "./reducers/oneFilm";
+
 import storage from "redux-persist/lib/storage"
 import movie from "./reducers/movie";
 
@@ -20,6 +22,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user,
+    oneFilm,
     movie
 })
 
