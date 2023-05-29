@@ -18,25 +18,35 @@ const HeaderSearch = ({open, setOpen}) => {
         <div className="headerSearch"
              style={{display: open ? 'flex' : 'none'}}
         >
-            <h2>Поиск</h2>
-            <input
-                type="search"
-                onChange={(e) => setSearch(e.target.value)}
-            />
-            <span onClick={() => setOpen(!open)}>
+            <div className="container">
+                <div className="headerSearch__row">
+                    <h2>Поиск</h2>
+                    <input
+                        type="search"
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <span onClick={() => setOpen(!open)}>
                 x
             </span>
-            <div>
-                <ul>
-                    {
-                        search.length ?
-                        data.map((item) => (
-                            <li>{item.name}</li>
-                        )) : ''
+                </div>
+                <div>
+                    <ul className='headerSearch__menu'>
+                        {
+                            search.length ?
+                                data.map((item) => (
+                                    <li className="headerSearch__menu-item">
 
-                    }
-                </ul>
+                                        {item.name}
+                                        <br/>
+                                        {item.year}
+                                    </li>
+                                )) : ''
+
+                        }
+                    </ul>
+                </div>
             </div>
+
         </div>
     );
 };
